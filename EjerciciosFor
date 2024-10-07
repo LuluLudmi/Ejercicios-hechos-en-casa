@@ -1,0 +1,116 @@
+package Ejercicios;
+
+import java.util.Scanner;
+
+public class Intentos {
+
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        /*
+        Imprimir los números del 1 al 30 sin imprimirpackage Ejercicios;
+
+import java.util.Scanner;
+
+public class Intentos {
+
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        /*
+        Imprimir los números del 1 al 30 sin imprimir
+        números entre el 10 y el 20 uno abajo del otro
+         
+        for (int i = 1; i <= 30; i++) {
+            if (i <= 9 || i >= 21) {
+                System.out.println(i);
+            }
+
+        }
+      
+//          /* Imprimir los números del 1 al 10 salteando de
+//           a dos, uno abajo del otro.
+        
+      for (int i = 1; i <= 10; i+=2) {
+            
+                System.out.println(i);
+            }
+  */
+        /*
+        Una persona desea invertir $1000 en un banco, el
+        cual le otorga un 2% de interés mensual ¿Cuál
+        será la cantidad de dinero que esta persona
+        tendrá al cabo de un año?
+        En el primer mes tendrá acumulado 1000 $ más
+        20 $ de interés ( 2% de 1000 ). En el segundo
+        mes se le sumará un 2% a la base de 1020 $ del
+        mes anterior y así sucesivamente. 
+
+        */
+         double capitalInicial= 1000;
+         double interes=2;
+         int meses= 12;
+            System.out.println("Su capital inicial es:");
+            System.out.println(capitalInicial);
+            interes =(capitalInicial/100)*interes;
+            System.out.println("Su interes por mes sera:"+ interes);
+            double interesAnual= (interes*12) + capitalInicial;    
+            System.out.println("Al cabo de los 12 meses tendra un monto de $:" + interesAnual);
+        /*
+        Crear un programa que ingrese una oración y
+        muestre cuál es el caracter que más se repite.
+        Consideraciones
+        * No debe incluir el espacio en blanco.
+        * La oración a ingresar no debe estar vacía.
+        */
+        }
+    }
+
+
+        números entre el 10 y el 20 uno abajo del otro
+         
+        for (int i = 1; i <= 30; i++) {
+            if (i <= 9 || i >= 21) {
+                System.out.println(i);
+            }
+
+        }
+      
+//          /* Imprimir los números del 1 al 10 salteando de
+//           a dos, uno abajo del otro.
+        
+      for (int i = 1; i <= 10; i+=2) {
+            
+                System.out.println(i);
+            }
+  */
+        /*
+        Una persona desea invertir $1000 en un banco, el
+        cual le otorga un 2% de interés mensual ¿Cuál
+        será la cantidad de dinero que esta persona
+        tendrá al cabo de un año?
+        En el primer mes tendrá acumulado 1000 $ más
+        20 $ de interés ( 2% de 1000 ). En el segundo
+        mes se le sumará un 2% a la base de 1020 $ del
+        mes anterior y así sucesivamente. 
+
+        */
+         double capitalInicial= 1000;
+         double interes=2;
+         int meses= 12;
+            System.out.println("Su capital inicial es:");
+            System.out.println(capitalInicial);
+            interes =(capitalInicial/100)*interes;
+            System.out.println("Su interes por mes sera:"+ interes);
+            double interesAnual= (interes*12) + capitalInicial;    
+            System.out.println("Al cabo de los 12 meses tendra un monto de $:" + interesAnual);
+        /*
+        Crear un programa que ingrese una oración y
+        muestre cuál es el caracter que más se repite.
+        Consideraciones
+        * No debe incluir el espacio en blanco.
+        * La oración a ingresar no debe estar vacía.
+        */
+        }
+    }
+
