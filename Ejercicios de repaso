@@ -1,0 +1,131 @@
+7 ) Crear un algoritmo (y su correspondiente diagrama de flujo) 
+que lea números enteros hasta teclear 0, y nos muestre el máximo, 
+el mínimo (sin considerar el 0) y la media (promedio) de todos ellos.
+        /* System.out.println("Ingrese los numeros enteros:");
+        int numerosE = teclado.nextInt();
+        int numeroMaximo = Interger.MIN_VALUE;
+        int numeroMinimo = Interger.MAX_VALUE;
+        int suma = 0;
+        double promedio = 0;
+
+        for (int i = 1; i <= numerosE; i++) {
+            int numeroNuevo = teclado.nextInt();
+            if(i ==1){
+                numeroMaximo = numeroNuevo;
+                numeroMinimo=numeroNuevo;
+            }
+            if (numeroNuevo > numeroMaximo) {
+                numeroMaximo = numeroNuevo;
+            } 
+            if(numeroNuevo < numeroMinimo){
+                numeroMinimo = numeroNuevo;
+            }
+            
+            suma = suma + numeroNuevo;
+            promedio=(double)suma/numerosE;
+            
+        }
+
+        System.out.println("El maximo numero es: " + numeroMaximo);
+        System.out.println("El minimo numero es: " + numeroMinimo);
+        System.out.println("La suma de todos los numeros enteros es:" + suma);
+        System.out.println("El promedio es:"+ promedio);
+        
+        
+       8) Leer tres números que denoten una fecha (día, mes, año). Comprobar que
+        es una fecha válida. Si no es válida escribir un mensaje de error. Si es válida
+        escribir la fecha cambiando el número del mes por su nombre. Ej. si se 
+        introduce 1 2 2006, se deberá imprimir “1 de febrero de 2006”. El año debe ser
+        mayor que 0. 
+       
+       
+        System.out.println("Ingrese el dia:");
+        int dia= teclado.nextInt();
+        System.out.println("Ingrese el mes:");
+        int mes= teclado.nextInt();
+         System.out.println("Ingrese el año:");
+        int anio= teclado.nextInt();
+        String mesDelAño= null; // valor vacio o nulo
+        String msj= "de";
+        String espacio= " ";
+        switch (mes){
+            case 1:
+                mesDelAño = "Enero";
+                break;
+                case 2:
+                mesDelAño = "Febrero";
+                break;
+                case 3:
+                mesDelAño = "Marzo";
+                break;
+                case 4:
+                mesDelAño = "Abril";
+                break;
+                case 5:
+                mesDelAño = "Mayo";
+                break;
+                case 6:
+                mesDelAño = "Junio";
+                break;
+                case 7:
+                mesDelAño = "Julio";
+                break;
+                case 8:
+                mesDelAño = "Agosto";
+                break;
+                case 9:
+                mesDelAño = "Septiembre";
+                break;
+                case 10:
+                mesDelAño = "Octubre";
+                break;
+                case 11:
+                mesDelAño = "Noviembre";
+                break;
+                case 12:
+                mesDelAño = "Diciembre";
+                break;
+                default:
+                    System.out.println("Numero del mes, incorrecto:");
+        }
+        
+        System.out.println(dia + " "+"de" + " "+  mesDelAño + " "+ "de"+" " +  anio);
+        
+        9) Imprimir la siguiente figura utilizando la estructura for  
+                : @@@@
+         
+       
+        System.out.println("Introduce la longitud del simbolo:");
+        int longitud = teclado.nextInt();
+        System.out.println("Introduce el simbolo ha imprimir:");
+        String simbolo = teclado.next();
+        for (int i = 0; i < longitud; i++) {  // 1er for repite lo que imprimio el 2do for
+            for (int j = 0; j <= longitud; j++) { // 2do imprime el simbolo elegido
+                continue;
+            }
+
+            System.out.print(simbolo);
+
+        }
+        12) Imprimir la siguiente figura utilizando la estructura for  
+        : @@@@@
+        @@@@
+        @@@
+        @@
+        @
+         */
+        System.out.println("Introduce el tamaño del cuadrado:");
+        int tamanio = teclado.nextInt();
+        System.out.println("Introduce el simbolo para dibujar el cuadrado:");
+        String simbolo = teclado.next();
+        for (int i = 0; i < tamanio; i++) {  // 1er for repite lo que imprimio el 2do for
+               tamanio --;
+            for (int j = 0; j < tamanio; j++) { // 2do imprime el simbolo elegido
+            
+                System.out.print(simbolo); //print imprime sin salto de linea
+            }
+            System.out.println();
+        }
+    }
+
+}
