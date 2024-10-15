@@ -1,0 +1,29 @@
+  Scanner teclado = new Scanner(System.in);
+        Random random = new Random();
+        int token = random.nextInt(900000) + 100000;
+        String usuario;
+        String usuarioCorrecto = "Toto";
+        String contraseña;
+        String contraseñaCorrecta = "lu01234";
+        int tokenDeBienvenida;
+        int intentos = 0;
+
+        /* System.out.println(!usuario.equalsIgnoreCase(usuarioCorrecto));
+        System.out.println(!contraseña.equals(contraseñaCorrecta));*/
+        do {
+            System.out.println("Bienvenido al On Line Banking");
+            System.out.println("Su clave token es: " + token);
+            System.out.println("Bienvenido a la  plataforma Online Banking, para ingresar siga las siguientes instrucciones:");
+            System.out.println("Por favor,ingrese su Usuario,contraseña y token:");
+            usuario = teclado.nextLine();
+            contraseña = teclado.nextLine();
+            tokenDeBienvenida = teclado.nextInt();
+            teclado.nextLine();
+          if(  usuario.equalsIgnoreCase(usuarioCorrecto) && contraseña.equals(contraseñaCorrecta) && token == tokenDeBienvenida){     
+              System.out.println("Ha ingresado incorrectamento lo pedido,vuelva a intentarlo");
+        }
+        }while (usuario.equalsIgnoreCase(usuarioCorrecto) && contraseña.equals(contraseñaCorrecta) && token == tokenDeBienvenida);
+
+            System.out.println("Bienvenido");
+       }
+    }
