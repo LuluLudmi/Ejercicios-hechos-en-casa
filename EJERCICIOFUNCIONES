@@ -1,0 +1,43 @@
+package clase15;
+
+import java.util.Scanner;
+
+
+public class Ejercicios {
+    public static void main(String[] args) {
+        //1. crear una función que devuelva la cantidad de vocales 
+        //de una palabra
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Ingrese una palabra");
+        String palabra = teclado.nextLine();
+        int cantidad = contarVocales(palabra);
+        System.out.println("La cantidad de vocales de la palabra es "
+                + "" + cantidad);
+        
+        
+    }
+    
+    public static int contarVocales(String palabra){
+        int contador = 0;
+        String palabraMinusculas = palabra.toLowerCase();
+        
+        for(int i=0; i<palabraMinusculas.length(); i++){
+            
+            if(     palabraMinusculas.charAt(i) == 'a' ||
+                    palabraMinusculas.charAt(i)  == 'e' ||
+                    palabraMinusculas.charAt(i)  == 'i' ||
+                    palabraMinusculas.charAt(i)  == 'o' ||
+                    palabraMinusculas.charAt(i)  == 'u' ||
+                    palabraMinusculas.charAt(i) == 'á' ||
+                    palabraMinusculas.charAt(i)  == 'é' ||
+                    palabraMinusculas.charAt(i)  == 'í' ||
+                    palabraMinusculas.charAt(i)  == 'ó' ||
+                    palabraMinusculas.charAt(i)  == 'ú'){
+                contador++;
+            }
+        }
+        return contador;
+    }
+    
+    
+}
