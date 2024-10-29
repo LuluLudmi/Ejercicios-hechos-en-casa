@@ -1,0 +1,182 @@
+public class Clase21{
+    public static void main(String[] args) {
+        
+        /*
+         * Profe: Carlos Rios c.rios@bue.edu.ar
+         */
+
+        //Arreglo - Vector - Arrays (sinonimos)
+
+        //Declaración del vector
+        int[] numeros=new int[4];
+        String[] nombres=new String[4];
+
+        //Carga de los vectores
+        numeros[0]=1;
+        nombres[0]="Juan";
+        numeros[1]=2;
+        nombres[1]="Maria";
+        numeros[2]=3;
+        nombres[2]="Jose";
+        numeros[3]=4;
+        nombres[3]="Ana";
+        //numeros[4]=5;                 //fuera de rango
+        //nombres[4]="Mirta";           //fuera de rango
+
+        //La primer posición de un vector tiene indice 0
+        //La última posición de un vector tiene indice N-1
+
+        /*
+         *          numeros     nombres                     index
+         *              1       Juan                            0
+         *              2       Maria                           1
+         *              3       Jose                            2
+         *              4       Ana                             3
+         */
+
+        System.out.println(numeros[2]+" "+nombres[2]);
+        System.out.println("*********************************************");
+        //Recorrido del vector
+        for(int a=0; a<4; a++){
+            System.out.println(numeros[a]+" "+nombres[a]);
+        }
+
+        //método length
+        System.out.println("Longitud numeros: "+numeros.length);
+
+        //recorrido usando length
+        for(int a=0; a<numeros.length; a++){
+            System.out.println(numeros[a]+" "+nombres[a]);
+        }
+        System.out.println("*********************************************");
+        //recorrido inverso
+        for(int a=numeros.length-1; a>=0; a--){
+            System.out.println(numeros[a]+" "+nombres[a]);
+        }
+
+        System.out.println("*********************************************");
+        //recorrido con while
+        int x=0;
+        while(x<numeros.length){
+            System.out.println(numeros[x]+" "+nombres[x]);
+            x++;
+        }
+
+        //inicialización abreviada
+        int[] vector={10,23,26,29,38,39,10,6,14,65,46,35,10,16};
+        System.out.println("longitud vector: "+vector.length);
+        for(int a=0; a<vector.length; a++) System.out.print(vector[a]+", ");
+        System.out.println();
+
+        //totalizar un vector numérico
+        //promediar el vector
+        int total=0;
+        for(int i=0; i<vector.length; i++) total+=vector[i];    // total=total+vector[i];
+        System.out.println("total: "+total);
+        System.out.println("promedio: "+((float)total/vector.length));   
+        //operador de casteo
+
+        //int[] vector={10,23,26,29,38,39,10,6,14,65,46,35,10,16};
+        //calcular valor mínimo y valor máximo
+        int min=vector[0];
+        int max=vector[0];
+        for(int i=1; i<vector.length; i++){
+            if(vector[i]<min) min=vector[i];
+            if(vector[i]>max) max=vector[i];
+        }
+        System.out.println("Valor mínimo: "+min);
+        System.out.println("Valor máximo: "+max);
+    
+        //Contar cantidad de números pares
+        //Contar cantidad de números impares
+        //Contar cantidad de veces que se repite el 10
+        int cantPares=0;
+        int cantImpares=0;
+        int cant10=0;
+
+        for(int i=0; i<vector.length; i++){
+            if(vector[i]%2==0)      cantPares++;
+            else                    cantImpares++;
+            if(vector[i]==10)       cant10++;
+        }
+        // for(int a=0; a<vector.length; a++)
+        // {
+        //     if(vector[a]%2==0){
+        //         cantPares++;
+        //         if(vector[a]==10)
+        //         {
+        //             cant10++;
+        //         }
+        //     }
+        //     else
+        //     {
+        //         cantImpares++;
+        //     }
+        // }
+        System.out.println("Cantidad Pares: "+cantPares);
+        System.out.println("Cantidad Impares: "+cantImpares);
+        System.out.println("Cantidad Veces 10: "+cant10);
+
+        //Recorrido de vector
+        // for(int a=0; a<vector.length; a++) System.out.print(vector[a]+", ");
+        // System.out.println();
+
+        //foreach
+        //el foreach es una simplificación del for
+        /*
+         for(tipo_de_dato elemento : colección){
+            cuerpo del foreach
+            es decir, la o las instrucciones que se ejecutarán en cada iteración
+         }
+         */
+        //con el foreach no tenemos que preocuparnos por el índice, ni por el avance,
+        //ni por el límite.
+        System.out.println("**********************");
+        for (int v : vector) {
+            System.out.print(v + " ");
+        }
+        System.out.println("\n************************");
+
+        System.out.println("**********************");
+        //foreach en línea (si solo tenemos una única sentencia)
+        for (int v : vector) System.out.print(v + " ");
+        System.out.println("\n************************");
+
+        //Ordenar vectores
+        Arrays.sort(vector);
+
+        for(int v:vector) System.out.print(v + " ");
+        System.out.println();
+        //copia de vectores
+        char[] origen = {'a', 'b', 'c', 'x', '@'};
+
+        //crear un vector con la misma longitud que el origen
+        char[] destino = new char[origen.length];
+
+        //asignar valor uno a uno
+        // destino[0] = origen[0];
+        // destino[1] = origen[1];
+        // destino[2] = origen[2];
+        // destino[3] = origen[3];
+        // destino[4] = origen[4];
+
+        for(int i=0; i<origen.length; i++){
+            destino[i] = origen[i];
+        }
+
+        System.out.println("Origen");
+        for(char o:origen) System.out.println(o);
+        System.out.println("Destino");
+        for(char d:destino) System.out.println(d);
+
+
+        char[] origen2 = {'a', 'b', 'c', 'd', 'e','f'};
+        char[] destino2 = new char[origen2.length];
+        System.arraycopy(origen2, 0, destino2, 0, origen2.length);
+        System.out.println("Origen2");
+        for(char o:origen2) System.out.println(o);
+        System.out.println("Destino2");
+        for(char d:destino2) System.out.println(d);
+
+    }
+}
