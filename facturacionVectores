@@ -1,0 +1,69 @@
+package clase22;
+
+import java.util.Scanner;
+
+
+public class Clase22 {
+
+
+    public static void main(String[] args) {
+        /*
+        Crear un vector que contenga el monto de la facturación total 
+        de una empresa de los últimos 6 meses
+        informar:
+        la máxima facturación
+        la facturación más baja
+        el promedio de facturación
+        */
+        
+        resolverEjercicio2();
+           
+    }
+    
+    public static void resolverEjercicio2(){
+        float[] facturacionesMeses = crearVectorFacturacionEnMeses(6);
+        informarMaxMinFacturacion(facturacionesMeses);
+        float promedio = calcularPromedio(facturacionesMeses);
+        System.out.println("El promedio facturado entre los " + 
+                facturacionesMeses.length + " meses es de $" + promedio + ".");
+    }
+    
+    public static float[] crearVectorFacturacionEnMeses(int longitud){
+        Scanner teclado = new Scanner(System.in);
+        float[] facturaciones = new float[longitud];
+        System.out.println("Bienvenido, por favor ingrese cuánto "
+                + "facturó en los últimos " + longitud + " meses" );
+        for(int i=0; i<longitud; i++){
+            float monto;
+            do {
+                System.out.println("Ingrese el monto del mes " + (i+1) + ":");
+                monto = teclado.nextFloat();
+                if(monto<0) System.out.println("No se permiten números negativos "
+                        + "si tuviste un mal mes, buscate otro rubro, pero este "
+                        + "sistema no es para vos!! Mentí con la facturación si "
+                        + "querés, pero acá poné números positivos solamente!!!");
+            } while (monto<0);
+            facturaciones[i] = monto;
+        }
+        return facturaciones;
+    }
+    
+    public static void informarMaxMinFacturacion(float[] array){
+        float facturacionMax = array[0];
+        float facturacionMin = array[0];
+        for(float a:array){
+            if(a>facturacionMax) facturacionMax=a;
+            else if(a<facturacionMin) facturacionMin=a;
+        }
+        System.out.println("La facturación máxima fue de $" + facturacionMax);
+        System.out.println("La facturación mínima fue de $" + facturacionMin);
+    }
+    
+    public static float calcularPromedio(float[] array){
+        int suma = 0;
+        for(float a:array) suma+=a;
+        float promedio = suma / array.length;
+        return promedio;
+    }
+    
+}
