@@ -1,0 +1,19 @@
+public class Aguada_Gilma_TPUno {
+
+    public static void main(String[] args) {
+                conversionDeUnidades();
+    }
+    Scanner teclado = new Scanner(System.in);
+   public static void conversionDeUnidades(){
+  
+  
+   }
+    public static float[] vectorDeUnidades(Scanner teclado, int unidad){
+        float[] arreglo = new float[unidad];
+        for(int i=0; i<unidad; i++){
+            System.out.print("Ingrese el " + (i+1) + "Â° valor: $");
+            arreglo[i] = teclado.nextFloat();
+        }
+        return arreglo;
+    }
+}
