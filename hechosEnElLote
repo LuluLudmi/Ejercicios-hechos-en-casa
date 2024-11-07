@@ -81,3 +81,111 @@ public class Aguada_Gilma_TPN1 {
         }
     }
 }
+**** RESUELTO CON AYUDA DE DAVID ****
+public class Aguada_Gilma_TPN1 {
+    
+     public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner teclado = new Scanner(System.in);
+
+        float valorEnBits = leerValorIngresado(teclado);
+
+        // Mostrar menú de opciones
+        mostrarMenu();
+
+        // Leer la opción del usuario
+        System.out.print("Elija una opción (1-5): ");
+        int opcion = teclado.nextInt();
+
+        // Realizar la conversión
+        float valorConvertido = convertirUnidades(valorEnBits, opcion);
+
+        // Si la opción es válida, mostrar el resultado
+        if (valorConvertido != -1) {
+            mostrarResultado(valorConvertido, opcion);
+        }
+    }
+
+    public static float convertirUnidades(float valor, int unidad) {
+        
+        // Unidades a las que se puede convertir desde bits
+        // 1 - bytes, 2 -  Kilobytes, 3 - Megabytes, 4 - Gigabytes, 5 - Terabytes. 
+        switch (unidad) {
+            case 1:
+                return valor / 8;  // bits a bytes
+            case 2:
+                return (valor / 8)/(1024*1);  // bits a kilobytes
+            case 3:
+                return (valor / 8)/(1024*2);  // bits a Megabytes
+            case 4:
+                return (valor / 8)/(1024*3);  // bits a Gigabytes
+            case 5:
+                return (valor / 8)/(1024*4);  // bits a Terabytes   
+            default:
+                System.out.println("Opción no válida.");
+                return -1;  // Retorna un valor de error
+        }
+    }
+    // Función para mostrar las opciones de conversión
+
+    public static void mostrarMenu() {
+        System.out.println("Seleccione una unidad a convertir desde bits:");
+        System.out.println("1 - Bytes");
+        System.out.println("2 - Kilobytes");
+        System.out.println("3 -Megabytes ");
+        System.out.println("4 - Gigabytes");
+        System.out.println("5 - Terabytes");
+/*
+public class Main {
+    public static void main(String[] args) {
+        // Definir un arreglo de strings con los valores del menú
+        String[] opciones = {
+            "1 - Bytes",
+            "2 - Kilobytes",
+            "3 - Megabytes",
+            "4 - Gigabytes",
+            "5 - Terabytes"
+        };
+
+        // Imprimir los valores del arreglo utilizando un bucle for
+        for (String opcion : opciones) {
+            System.out.println(opcion);
+        }
+    }
+}
+
+
+*/
+    }
+
+    // Procedimiento para leer la entrada del usuario
+    public static float leerValorIngresado(Scanner teclado) {
+        System.out.print("Ingrese el valor en bits: ");
+        return teclado.nextFloat();
+    }
+
+    // Procedimiento para mostrar los resultados
+    public static void mostrarResultado(float valorConvertido, int opcion) {
+        String unidad = "";
+        switch (opcion) {
+            case 1:
+                unidad = "Bytes";
+                break;
+            case 2:
+                unidad = "Kilobytes";
+                break;
+            case 3:
+                unidad = "Megabytes";
+                break;
+            case 4:
+                unidad = "Gigabytes";
+                break;
+            case 5:
+                unidad = "Tetrabytes";
+                break;
+        }
+        System.out.printf("El valor convertido es: %.2f %s\n", valorConvertido, unidad);
+    }
+
+   
+}
