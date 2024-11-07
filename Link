@@ -3,3 +3,8 @@ videos de youtube funciones https://www.youtube.com/watch?v=YSLWr8-4Rmk
 https://www.youtube.com/watch?v=b-XbBZFS35M Video de vectores TodoCode
 https://www.coto.com.ar/empleos/#/home mandar cv
 https://multi-converter.com/es/bits-a-terabytes?bits=14
+Para un aprobar un trabajo final en programación debo resolver el siguiente ejercicio que tenga funciones, procedimientos y vectores en Java. Dice:  Solicitar al usuario que ingrese dos números. 
+        Luego ofrecerle un menú con las siguientes opciones:
+        1-suma 2-resta 3-multiplicación 4-división
+        Finalmente, mostrar el resultado de la operación
+        aritmética elegida.
