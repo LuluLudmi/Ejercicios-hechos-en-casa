@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class ConversionBits {
+    public static void main(String[] args) {
+        // Crear un scanner para leer entrada del usuario
+        Scanner scanner = new Scanner(System.in);
+        
+        // Solicitar al usuario que ingrese un número de bits
+        System.out.print("Ingresa el número de bits: ");
+        long bits = scanner.nextLong();
+        
+        // Realizar las conversiones
+        double bytes = bits / 8.0;
+        double kilobytes = bits / (8.0 * 1024);
+        double megabytes = bits / (8.0 * 1024 * 1024);
+        double gigabytes = bits / (8.0 * 1024 * 1024 * 1024);
+        double terabytes = bits / (8.0 * 1024 * 1024 * 1024 * 1024);
+        
+        // Mostrar los resultados
+        System.out.println(bits + " bits equivalen a:");
+        System.out.println(bytes + " bytes");
+        System.out.println(kilobytes + " kilobytes (KB)");
+        System.out.println(megabytes + " megabytes (MB)");
+        System.out.println(gigabytes + " gigabytes (GB)");
+        System.out.println(terabytes + " terabytes (TB)");
+        
+        // Cerrar el scanner
+        scanner.close();
+    }
+}
