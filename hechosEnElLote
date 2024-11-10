@@ -196,9 +196,6 @@ public class Aguada_Gilma_TPUno {
 
         float valorEnBits = leerValorIngresado(teclado);
 
-        // Mostrar menú de opciones
-       
-
         // Leer la opción del usuario
         System.out.print("Elija una opción (1-5): ");
         int opcion = teclado.nextInt();
@@ -211,6 +208,7 @@ public class Aguada_Gilma_TPUno {
             mostrarResultado(valorConvertido, opcion);
         }
     }
+    // Mostrar por consola menú de opciones
 
     public static float convertirUnidades(float valor, int unidad) {
 
@@ -220,23 +218,23 @@ public class Aguada_Gilma_TPUno {
             case 1:
                 return valor / 8;  // bits a bytes
             case 2:
-                return (valor)/(8 * 1024); // bits a kilobytes
+                return (valor) / (8 * 1024); // bits a kilobytes
             case 3:
-                return (valor)/ (8 * 1024 * 1024);  // bits a Megabytes
+                return (valor) / (8 * 1024 * 1024);  // bits a Megabytes
             case 4:
-                return (valor)/(8 * 1024 * 1024 * 1024);  // bits a Gigabytes
+                return (valor) / (8 * 1024 * 1024 * 1024);  // bits a Gigabytes
             case 5:
-                return (valor)/ (8 * 1024 * 1024 * 1024 * 1024);  // bits a Terabytes   
+                return (valor) / (8 * 1024 * 1024 * 1024 * 1024);  // bits a Terabytes   
             default:
                 System.out.println("Opción no válida.");
                 return -1;  // Retorna un valor de error
         }
-    
+
     }
 
     // Procedimiento para leer la entrada del usuario
     public static float leerValorIngresado(Scanner teclado) {
-        System.out.print("Ingrese el valor en bits: ");
+        System.out.print("Por favor,ingrese el valor en bits: ");
         return teclado.nextFloat();
     }
 
@@ -260,11 +258,11 @@ public class Aguada_Gilma_TPUno {
                 unidad = "Tetrabytes";
                 break;
         }
-        System.out.printf("El valor convertido es: %.2f %s\n", valorConvertido, unidad);
+        System.out.printf("El valor convertido es: %.9f %s\n", valorConvertido, unidad);
     }
 
-    public static void mostrarMenu (String[] args) {
-        // Definir un arreglo de strings con los valores del menú
+    public static void mostrarMenu(String[] args) {
+        // Definir un arreglo o vector de strings con los valores del menú
         String[] opciones = {
             "1 - Bytes",
             "2 - Kilobytes",
@@ -279,4 +277,5 @@ public class Aguada_Gilma_TPUno {
         }
     }
 }
+
 
