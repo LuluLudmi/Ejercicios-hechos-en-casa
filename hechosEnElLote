@@ -294,7 +294,7 @@ public class DomingoTPFinal {
         System.out.println("4 - Gigabytes");
         System.out.println("5 - Terabytes");
         int opcion = teclado.nextInt();
-          
+
         // Realizar la conversión
         float valorConvertido = convertirUnidades(valorEnBits, opcion);
 
@@ -336,11 +336,11 @@ public class DomingoTPFinal {
     // Procedimiento para mostrar los resultados por consola
     public static void mostrarResultado(float valorConvertido, int opcion) {
         String unidad = "";
-       
+
         switch (opcion) {
             case 1:
                 unidad = "Bytes";
-               
+
             case 2:
                 unidad = "Kilobytes";
                 break;
@@ -359,7 +359,12 @@ public class DomingoTPFinal {
 
     public static void mostrarMenu(String[] args) {
         // Definir un arreglo o vector de strings con los valores del menú.
-        //Utilizar un bucle for mejorado para recorrer el arreglo e imprimir cada opción.
+        //Utilizar un bucle for  para recorrer el arreglo e imprimir cada opción.
+        /*
+        En Java, args en el método main es un arreglo de String que se utiliza para 
+        recibir argumentos de línea de comandos al ejecutar un programa.
+        Estos argumentos permiten que el programa tome parámetros al ser iniciado.
+        */
         String[] opciones = {
             "1 - Bytes",
             "2 - Kilobytes",
@@ -368,11 +373,138 @@ public class DomingoTPFinal {
             "5 - Terabytes"
         };
 
-        // Imprimir los valores del arreglo utilizando un bucle for
+        // Imprimir los valores del arreglo utilizando un bucle foreach 
+        // que recorre cada elemento sin preocuparse por los índices.
         for (String opcion : opciones) {
             System.out.println(opcion);
+            /*
+            
+            si quiero utilizar un for comun lo deberia hacer de la siguiente manera
+            public class Main {
+    public static void main(String[] args) {
+        // Definir un arreglo de strings con los valores del menú
+        String[] opciones = {
+            "1 - Bytes",
+            "2 - Kilobytes",
+            "3 - Megabytes",
+            "4 - Gigabytes",
+            "5 - Terabytes"
+        };
+
+        // Imprimir los valores del arreglo utilizando un bucle for común
+        for (int i = 0; i < opciones.length; i++) {
+            System.out.println(opciones[i]);
         }
     }
 }
+ */
+        }
+    }
+}
+******* CORREGIDO DIA DOMINGO******
+import java.text.DecimalFormat;
+import java.util.Scanner;
 
+public class DomingoTPFinal {
 
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        
+        double valorEnBits = leerValorIngresado(teclado);
+
+        // Mostrar el menú de opciones
+        String[] opciones = {
+            "1 - Bytes",
+            "2 - Kilobytes",
+            "3 - Megabytes",
+            "4 - Gigabytes",
+            "5 - Terabytes"
+        };
+        
+        for (String opcion : opciones) {
+            System.out.println(opcion);
+        }
+        
+        // Leer la opción del usuario
+        System.out.print("Seleccione una unidad a convertir desde bits: ");
+        int opcion = teclado.nextInt();
+
+        // Realizar la conversión
+        double valorConvertido = convertirUnidades(valorEnBits, opcion);
+
+        // Si la opción es válida, mostrar el resultado
+        if (valorConvertido != -1) {
+            mostrarResultado(valorConvertido, opcion);
+        }
+    }
+
+    // Método para realizar la conversión de unidades
+    public static double convertirUnidades(double valor, int unidad) {
+        // Unidades a las que se puede convertir desde bits
+        // 1 - bytes, 2 - Kilobytes, 3 - Megabytes, 4 - Gigabytes, 5 - Terabytes
+        switch (unidad) {
+            case 1:
+                return valor / 8;  // bits a bytes
+            case 2:
+                return valor / (8 * 1024); // bits a kilobytes
+            case 3:
+                return valor / (8 * 1024 * 1024);  // bits a Megabytes
+            case 4:
+                return valor / (8 * 1024 * 1024 * 1024);  // bits a Gigabytes
+            case 5:
+                return valor / (8 * 1024 * 1024 * 1024 * 1024);  // bits a Terabytes   
+            default:
+                System.out.println("Opción no válida.");
+                return -1;  // Retorna un valor de error
+        }
+    }
+
+    // Procedimiento para leer la entrada del usuario
+    public static double leerValorIngresado(Scanner teclado) {
+        System.out.print("Por favor, ingrese el valor en bits: ");
+        return teclado.nextDouble();
+    }
+
+    // Procedimiento para mostrar los resultados por consola
+    public static void mostrarResultado(double valorConvertido, int opcion) {
+        String unidad = "";
+
+        switch (opcion) {
+            case 1:
+                unidad = "Bytes";
+                break;
+            case 2:
+                unidad = "Kilobytes";
+                break;
+            case 3:
+                unidad = "Megabytes";
+                break;
+            case 4:
+                unidad = "Gigabytes";
+                break;
+            case 5:
+                unidad = "Terabytes";
+                break;
+        }
+
+        // Utilizar DecimalFormat para mostrar los números en notación científica si son muy grandes o muy pequeños
+        DecimalFormat formato = new DecimalFormat("0.#####E0");
+        System.out.printf("El valor convertido es: %s %s\n", formato.format(valorConvertido), unidad);
+    }
+}
+
+pregunta que hice :
+Para aprobar mi curso de programacion hice el siguiente ejercicio de conversion de unidades, parto siempre de un bits a las distintas unidades bytes,kilobytes,gigfabytes,megabytes y tetabytes, simepre partiendo de un bits. Asi lo resolvi: public class DomingoTPFinal { public static void main(String[] args) { // TODO code application logic here Scanner teclado = new Scanner(System.in); float valorEnBits = leerValorIngresado(teclado); // Leer la opción del usuario System.out.println("Por favor,seleccione una unidad a convertir desde bits:"); System.out.println("1 - Bytes"); System.out.println("2 - Kilobytes"); System.out.println("3 -Megabytes "); System.out.println("4 - Gigabytes"); System.out.println("5 - Terabytes"); int opcion = teclado.nextInt(); // Realizar la conversión float valorConvertido = convertirUnidades(valorEnBits, opcion); // Si la opción es válida, mostrar el resultado if (valorConvertido != -1) { mostrarResultado(valorConvertido, opcion); } } // Mostrar por consola menú de opciones public static float convertirUnidades(float valor, int unidad) { // Unidades a las que se puede convertir desde bits // 1 - bytes, 2 - Kilobytes, 3 - Megabytes, 4 - Gigabytes, 5 - Terabytes. switch (unidad) { case 1: return valor / 8; // bits a bytes case 2: return (valor) / (8 * 1024); // bits a kilobytes case 3: return (valor) / (8 * 1024 * 1024); // bits a Megabytes case 4: return (valor) / (8 * 1024 * 1024 * 1024); // bits a Gigabytes case 5: return (valor) / (8 * 1024 * 1024 * 1024 * 1024); // bits a Terabytes default: System.out.println("Opción no válida."); return -1; // Retorna un valor de error } } // Procedimiento para leer la entrada del usuario public static float leerValorIngresado(Scanner teclado) { System.out.print("Por favor,ingrese el valor en bits: "); return teclado.nextFloat(); } // Procedimiento para mostrar los resultados por consola public static void mostrarResultado(float valorConvertido, int opcion) { String unidad = ""; switch (opcion) { case 1: unidad = "Bytes"; case 2: unidad = "Kilobytes"; break; case 3: unidad = "Megabytes"; break; case 4: unidad = "Gigabytes"; break; case 5: unidad = "Tetrabytes"; break; } System.out.printf("El valor convertido es: %.9f %s\n", valorConvertido, unidad); } public static void mostrarMenu(String[] args) { // Definir un arreglo o vector de strings con los valores del menú. //Utilizar un bucle for para recorrer el arreglo e imprimir cada opción. /* En Java, args en el método main es un arreglo de String que se utiliza para recibir argumentos de línea de comandos al ejecutar un programa. Estos argumentos permiten que el programa tome parámetros al ser iniciado. */ String[] opciones = { "1 - Bytes", "2 - Kilobytes", "3 - Megabytes", "4 - Gigabytes", "5 - Terabytes" }; // Imprimir los valores del arreglo utilizando un bucle foreach // que recorre cada elemento sin preocuparse por los índices. for (String opcion : opciones) { System.out.println(opcion); } } } Mi duda es como puedo mejorarlo para que me muestre por consola numeros muy pequeños y muy grandes siempre en lenguaje java usando vectores, foreach, while,for y datos primitivos
+Tu ejercicio está bien estructurado y cubre la lógica básica de conversión de unidades. Para mejorarlo y asegurarte de que pueda manejar tanto números muy pequeños como muy grandes, puedes considerar algunos ajustes:
+
+Usar double en lugar de float: La precisión de double es mayor que la de float, lo cual es útil para manejar números muy pequeños y muy grandes.
+
+Formatear la salida para números científicos: Utilizar DecimalFormat para mostrar números en notación científica.
+
+Manejar los límites de entrada y salida: Asegurarte de que el programa puede manejar entradas muy grandes sin desbordamiento.
+MEJORES PRACTICAS APLICADAS
+Uso de double: Para una mayor precisión en cálculos con números muy grandes y pequeños.
+
+DecimalFormat: Para mostrar números en notación científica, mejorando la legibilidad de resultados muy pequeños o muy grandes.
+
+Organización del código: Todo el código relevante está contenido en métodos claros y separados.
