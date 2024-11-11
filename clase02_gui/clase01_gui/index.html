@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase01</title>
+</head>
+<body>
+    <!-- comentarios en linea -->   
+     <!-- bloques de 
+      comentarios
+      -->
+      <!-- atajo con teclado ctrl + }  // para escrbir la llave presiono alt + 125 -->
+       <h1> Hola Mundo</h1>
+      <!-- Enunciados, encabezados -->
+      <h1> Titulo 1</h1> 
+      <h2> Titulo 2</h2>
+      <h3> Titulo 3</h3>
+      <h4> Titulo 4</h4>
+      <h5> Titulo 5</h5>
+      <h6> Titulo 6</h6>
+      <!-- Parrafos -->
+       <p id="parrafo1">
+        Los parrafos comtienen texto.No deberia trabarse ningun texto sin estar anidado(dentro de una etiqueta)
+        en el elemento HTML.
+        Es muy importante considerar el valor semantico de los elementos.
+        En HTML , el termino semantico se refiere al uso de etiquetas que no solo describe la APARIENCIA de un 
+        <'b'> (bold) -> negrita <br>
+        <'b'> (bold) -> negrita <br>↩
+       </p>
+       <!-- Elemento anidados -->
+    <p>
+        <strong> dolor sit amet</strong>
+        <!-- Lista -->
+         <!-- Listas ordenadas -->
+          <ol type="A"> 
+              <li>Item 1</li>
+              <li>Item 2</li>
+              <li>Item 3</li>
+              <li>Item 4</li>
+              <li>Item 5</li>
+              </ol>
+              <ol type="I"> 
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+                <li>Item 5</li>
+                
+          </ol>
+          <!-- anteriormente,se utilizaba el atributo type, pero actualmente en HTML fue reemplazado -->
+           <ol style="list-style-type: upper-latin;">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+           </ol>
+           <ul style="list-style-type: circle;">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+           </ul>
+           <ul style="list-style-type: square;">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+           </ul>
+     <!-- Vinculos -->
+     <!-- Vinculos Relativos -->
+     <!-- Son los que me permiten interconectar los archivos de nuestra pagina.Ir a otro lugar, tienen un enlaces
+      vincuos relativos, me permite ir a otro archivo dsde de mi programa-->
+<a href="formulario.html" title="Ir a la pagina del formulario">formulario</a>
+<!-- Vinculos absolutos -->
+ <!-- Especifican la direccion completa o URL de un recurso -->
+  <a href="http://centro8smata.org.ar" title="Pagina oficial del centro 8 ">Centro 8</a>
+
+
+  <!-- Vinculos de correo electronico -->
+  <!-- Permiten abrir automaticmente el programa de correo electronica del ordenador del ususario -->
+   <a href="mailto:franciscoacuna.centro8@gmail.com">Enviar un email</a>
+<!-- Vinculos de telefono -->
+ <!-- Actualmente se puede incluir un vinculo de telefono de modo tal que se active watssap
+   -->
+ <a href="tel:+5401134574701">Llame ya!</a>
+ <!-- Vinculos ancla -->
+  <!-- Se dirige a una parte de la misma pagina -->
+<a href="#parrafo1" title="Ir al primer parrafo">Parrafo 1</a>
+<br> <br>
+<!-- Imagenes -->
+ <!-- La etiqueta que se utiliza para las imagenes es img y es una etiqueta vacia,es decir, no lleva cierre.
+  El atributo src establece la direccion en donde se encuntra la imagen .
+  E atributo alt permite describir el contenido de la imagen
+  Los atributos witch y height indican el ancho y el alto de la imagen en pixeles.
+  El atributo title proporciona un texto adicional que se muestra como informacion emergente cuando el
+  usuario pasa el mouse sobre la imagen -->
+  <!-- Imagenes locales(son las que se encuentran dentro del proyecto) -->
+   <img src="images/Blanco Abuelo Perro Cuadrado Animal Meme.png" alt="Blanco abuelo perro cuadrado animal meme" witch="240">
+ <!-- Imgenes fuera del proyecto con ruta alternativa -->
+ <img src="https://cdn.pixabay.com/photo/2022/10/11/12/38/dog-7514202_1280.jpg" alt="Perro sentado" witch="500">
+ <!-- Imagenes como vinculos -->
+  <a href="https://pixabay.com/es/photos/tamarin-tit%C3%AD-cabeza-de-algod%C3%B3n-mono-8329530/" title="Pixabay  - foto mono cabeza de algodon" target="-blank">
+
+    <img src="https://cdn.pixabay.com/photo/2023/10/20/13/48/tamarin-8329530_960_720.png" alt="Imagen mono">
+  </a>
+</body>
+</html> 
