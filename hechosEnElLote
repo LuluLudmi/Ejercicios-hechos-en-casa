@@ -508,3 +508,102 @@ Uso de double: Para una mayor precisión en cálculos con números muy grandes y
 DecimalFormat: Para mostrar números en notación científica, mejorando la legibilidad de resultados muy pequeños o muy grandes.
 
 Organización del código: Todo el código relevante está contenido en métodos claros y separados.
+****martes****
+###
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class SabadoDePrac {
+
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+
+        // Leer el valor de entrada
+        double valorEnBits = leerValorIngresado(teclado);
+
+        // Mostrar el menú de opciones
+        String[] opciones = {
+            "1 - Bytes",
+            "2 - Kilobytes",
+            "3 - Megabytes",
+            "4 - Gigabytes",
+            "5 - Terabytes"
+        };
+
+        // Mostrar las opciones al usuario
+        for (String opcion : opciones) {
+            System.out.println(opcion);
+        }
+
+        int opcion = 0;
+
+        // Usamos un bucle while para asegurar que el usuario elija una opción válida
+        while (true) {
+            // Leer la opción seleccionada
+            System.out.print("Seleccione una unidad a convertir desde bits: ");
+            opcion = teclado.nextInt();
+
+            // Verificar si la opción es válida (1 a 5)
+            if (opcion >= 1 && opcion <= 5) {
+                break; // Salimos del bucle si la opción es válida
+            } else {
+                System.out.println("¡Error! Opción no válida. Por favor, elija una opción válida (1-5).");
+            }
+        }
+
+        // Realizar la conversión
+        convertirUnidades(valorEnBits, opcion);
+    }
+
+    // Método para leer el valor ingresado
+    public static double leerValorIngresado(Scanner teclado) {
+    double valor = -1; // Inicializamos el valor a un número incorrecto para entrar al bucle
+        while (valor < 0) {
+            System.out.println("Bienvenido a su convertidor en línea.");
+            System.out.println("Todas las conversiones parten de un valor en bits a diferentes unidades.");
+            System.out.print("Por favor, ingrese un número natural (en bits): ");
+
+            // Leemos el valor ingresado por el usuario
+            valor = teclado.nextDouble();
+
+            // Verificamos si el valor es válido (es decir, no negativo)
+            if (valor < 0) {
+                System.out.println("¡Error! El valor debe ser un número positivo.");
+            }
+        }
+        return valor;
+    }
+
+    // Método para realizar la conversión de unidades
+    public static void convertirUnidades(double valor, int unidad) {
+        double valorConvertido = 0;
+        String unidadConvertida = "";
+
+        switch (unidad) {
+            case 1:
+                valorConvertido = valor / 8;
+                unidadConvertida = "Bytes";
+                break;
+            case 2:
+                valorConvertido = valor / (8 * 1024);
+                unidadConvertida = "Kilobytes";
+                break;
+            case 3:
+                valorConvertido = valor / (8 * 1024 * 1024);
+                unidadConvertida = "Megabytes";
+                break;
+            case 4:
+                valorConvertido = valor / (8 * 1024 * 1024 * 1024);
+                unidadConvertida = "Gigabytes";
+                break;
+            case 5:
+                valorConvertido = valor / (8 * 1024 * 1024 * 1024 * 1024);
+                unidadConvertida = "Terabytes";
+                break;
+        }
+
+        // Mostrar el resultado
+        DecimalFormat formato = new DecimalFormat("0.########E0");
+        System.out.printf("El valor convertido es: %s %s\n", formato.format(valorConvertido), unidadConvertida);
+    }
+}
