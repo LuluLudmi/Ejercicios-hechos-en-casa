@@ -1,0 +1,102 @@
+drop database if exists negocio_V;
+create database negocio_V;
+
+use negocio_V;
+
+CREATE TABLE productos (
+    id_producto INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100),
+    id_categoria INT,
+    precio DECIMAL(10, 2),
+    stock INT,
+    FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria)
+);
+
+-- 2. Tabla categorias:
+
+CREATE TABLE categorias (
+    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_categoria VARCHAR(50)
+);
+
+-- 3. Tabla ventas:
+CREATE TABLE ventas (
+    id_venta INT AUTO_INCREMENT PRIMARY KEY,
+    id_producto INT,
+    cantidad INT,
+    fecha DATE,
+    precio_total DECIMAL(10, 2),
+    FOREIGN KEY (id_producto) REFERENCES productos(id_producto)
+);
+
+-- Insertar categorías
+INSERT INTO categorias (nombre_categoria) VALUES ('Camisetas');
+INSERT INTO categorias (nombre_categoria) VALUES ('Pantalones');
+INSERT INTO categorias (nombre_categoria) VALUES ('Zapatos');
+
+-- Insertar productos
+INSERT INTO productos (nombre, id_categoria, precio, stock) VALUES 
+('Camiseta roja', 1, 20.00, 100),
+('Pantalón azul', 2, 35.00, 50),
+('Zapatos deportivos', 3, 50.00, 30);
+
+-- Insertar ventas
+INSERT INTO ventas (id_producto, cantidad, fecha, precio_total)VALUES 
+(1, 2, '2024-10-15', 40.00),
+ (2, 1, '2024-10-16', 35.00),
+ (3, 3, '2024-10-17', 150.00);
+ 
+-- Relaciono todas las tablas
+
+SELECT*FROM ventas v
+JOIN productos p ON v.id_producto = p.id_producto
+JOIN categorias c ON p.id_categoria = c.id_categoria;
+
+CREATE VIEW vista_ventas_detalle AS
+SELECT v.id_venta,p.nombre AS producto, p.precio, p.stock, 
+c.nombre_categoria, v.cantidad, v.fecha, v.precio_total
+FROM ventas v
+JOIN productos p ON v.id_producto = p.id_producto
+JOIN categorias c ON p.id_categoria = c.id_categoria;
+ show tables;
+
+
+
+-- 1. Consultas con `JOIN`
+
+-- Consulta 1: Obtener una lista de todos los productos junto con su categoría.
+select p.id_producto,p.nombre,p.id_categoria,p. precio,p. stock 
+from productos p
+JOIN categorias c ON p.id_categoria = c.id_categoria;
+
+-- Consulta 2: Obtener las ventas realizadas de un producto específico (por ejemplo, el producto con ID 1) y mostrar la cantidad vendida y el precio total.
+
+select v.cantidad,v.fecha,v.precio_total
+from ventas v left join productos p
+on v.id_producto =p.id_producto
+where p.id_producto =1;
+SELECT v.id_venta,   -- en esta resolucion muestro que producto es
+p.nombre AS producto, v.cantidad, v.precio_total
+FROM ventas v
+JOIN productos p ON v.id_producto = p.id_producto
+WHERE p.id_producto = 1;
+
+-- 2. Uso de Funciones de Agrupacion
+
+-- Consulta 3: Obtener el precio máximo, mínimo y promedio de todos los productos.
+select round( avg(precio),2) precio_promedio
+from productos;
+select round( avg(precio),2) precio_maximo
+from productos;
+select round( avg(precio),2) precio_minimo
+from productos;
+
+-- Consulta 4: Obtener el producto con el precio más alto.
+-- Consulta 5: Obtener el total de ventas de cada producto (precio total de todas las ventas por producto).
+
+-- 3. Operaciones de Actualización y Eliminación
+
+-- Consulta 6: Actualizar el precio de un producto (por ejemplo, el producto con ID 1) a un nuevo valor (por ejemplo, 150.00).
+-- Consulta 7: Aumentar el precio de todos los productos de una categoría específica (por ejemplo, la categoría con ID 2) en un 10%.
+-- Consulta 8: Eliminar un producto específico (por ejemplo, el producto con ID 3) de la base de datos.
+-- Consulta 9: Eliminar todas las ventas asociadas a un producto específico (por ejemplo, el producto con ID 2).
